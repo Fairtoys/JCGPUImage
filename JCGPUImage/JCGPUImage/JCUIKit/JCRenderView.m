@@ -53,8 +53,7 @@
 }
 
 - (void)setRenderbufferStorage{
-    [self.renderbuffer bind];
-    [[JCGLContext sharedContext].context renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.glLayer];
+    [self.renderbuffer setRenderBufferStorageForDrawable:self.glLayer];
 }
 
 - (JCGLRenderbuffer *)renderbuffer{
@@ -69,8 +68,7 @@
 }
 
 - (void)presentRenderbuffer{
-    [self.renderbuffer bind];
-    [[JCGLContext sharedContext].context presentRenderbuffer:GL_RENDERBUFFER];
+    [self.renderbuffer presentRenderBuffer];
 }
 
 @end

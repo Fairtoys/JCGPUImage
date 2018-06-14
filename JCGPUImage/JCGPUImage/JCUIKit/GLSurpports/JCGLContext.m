@@ -7,6 +7,9 @@
 //
 
 #import "JCGLContext.h"
+#import "JCGLRenderbuffer.h"
+#import "JCGLFramebuffer.h"
+#import "JCNode.h"
 
 @implementation JCGLContext
 
@@ -30,6 +33,28 @@
     if ([EAGLContext currentContext] != self.context) {
         [EAGLContext setCurrentContext:self.context];
     }
+}
+
+- (void)setViewPort:(GLint)x y:(GLint)y width:(GLsizei)width height:(GLsizei)height{
+    glViewport(x, y, width, height);
+}
+
+- (void)clear{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+- (void)update{
+    
+}
+
+- (void)draw{
+    [self.currentFramebuffer bind];
+    [self clear];
+    
+    [self.rootNode draw];
+    
+    [self.currentFramebuffer bind];
+    [self.currentRenderbuffer presentRenderBuffer];
 }
 
 @end

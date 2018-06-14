@@ -19,6 +19,8 @@
 		026B673F20C90BF1001085EC /* JCGLTexture.m in Sources */ = {isa = PBXBuildFile; fileRef = 026B673E20C90BF1001085EC /* JCGLTexture.m */; };
 		026B674220C90BFE001085EC /* JCGLRenderbuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 026B674120C90BFE001085EC /* JCGLRenderbuffer.m */; };
 		026B676720C93AC1001085EC /* JCRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 026B676620C93AC1001085EC /* JCRenderView.m */; };
+		02EECB4020D2795E00455FA5 /* JCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EECB3F20D2795E00455FA5 /* JCNode.m */; };
+		F271DD95AA39B5B638DB9572 /* libPods-JCGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC09977F63D33BEB9FF6CDDF /* libPods-JCGPUImage.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,12 @@
 		026B676420C92EF7001085EC /* JCFramebufferAttachProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCFramebufferAttachProtocol.h; sourceTree = "<group>"; };
 		026B676520C93AC1001085EC /* JCRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCRenderView.h; sourceTree = "<group>"; };
 		026B676620C93AC1001085EC /* JCRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCRenderView.m; sourceTree = "<group>"; };
+		02EECB3D20D26D6500455FA5 /* JCGPUImageHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCGPUImageHeader.h; sourceTree = "<group>"; };
+		02EECB3E20D2795E00455FA5 /* JCNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCNode.h; sourceTree = "<group>"; };
+		02EECB3F20D2795E00455FA5 /* JCNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCNode.m; sourceTree = "<group>"; };
+		5FD113F95A392BFA162B89D9 /* Pods-JCGPUImage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCGPUImage.release.xcconfig"; path = "Pods/Target Support Files/Pods-JCGPUImage/Pods-JCGPUImage.release.xcconfig"; sourceTree = "<group>"; };
+		CC99541B837768A71B0B635B /* Pods-JCGPUImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCGPUImage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JCGPUImage/Pods-JCGPUImage.debug.xcconfig"; sourceTree = "<group>"; };
+		EC09977F63D33BEB9FF6CDDF /* libPods-JCGPUImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JCGPUImage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F271DD95AA39B5B638DB9572 /* libPods-JCGPUImage.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +72,8 @@
 			children = (
 				026B670720C9069A001085EC /* JCGPUImage */,
 				026B670620C9069A001085EC /* Products */,
+				0DA739F0AF741D5C6DD81AF6 /* Pods */,
+				A36AA4B903E0FC7E8FCAF2AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +115,8 @@
 		026B672120C90A8D001085EC /* GLSurpports */ = {
 			isa = PBXGroup;
 			children = (
+				02EECB3E20D2795E00455FA5 /* JCNode.h */,
+				02EECB3F20D2795E00455FA5 /* JCNode.m */,
 				026B673420C90BD7001085EC /* JCGLContext.h */,
 				026B673520C90BD7001085EC /* JCGLContext.m */,
 				026B673720C90BE1001085EC /* JCGLProgram.h */,
@@ -115,8 +128,26 @@
 				026B673E20C90BF1001085EC /* JCGLTexture.m */,
 				026B674020C90BFE001085EC /* JCGLRenderbuffer.h */,
 				026B674120C90BFE001085EC /* JCGLRenderbuffer.m */,
+				02EECB3D20D26D6500455FA5 /* JCGPUImageHeader.h */,
 			);
 			path = GLSurpports;
+			sourceTree = "<group>";
+		};
+		0DA739F0AF741D5C6DD81AF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CC99541B837768A71B0B635B /* Pods-JCGPUImage.debug.xcconfig */,
+				5FD113F95A392BFA162B89D9 /* Pods-JCGPUImage.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A36AA4B903E0FC7E8FCAF2AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC09977F63D33BEB9FF6CDDF /* libPods-JCGPUImage.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +157,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 026B671B20C9069C001085EC /* Build configuration list for PBXNativeTarget "JCGPUImage" */;
 			buildPhases = (
+				52CA8914E5BC01FBD2F26DE2 /* [CP] Check Pods Manifest.lock */,
 				026B670120C9069A001085EC /* Sources */,
 				026B670220C9069A001085EC /* Frameworks */,
 				026B670320C9069A001085EC /* Resources */,
@@ -184,6 +216,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		52CA8914E5BC01FBD2F26DE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JCGPUImage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		026B670120C9069A001085EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -193,6 +246,7 @@
 				026B673F20C90BF1001085EC /* JCGLTexture.m in Sources */,
 				026B673620C90BD7001085EC /* JCGLContext.m in Sources */,
 				026B671820C9069C001085EC /* main.m in Sources */,
+				02EECB4020D2795E00455FA5 /* JCNode.m in Sources */,
 				026B676720C93AC1001085EC /* JCRenderView.m in Sources */,
 				026B673920C90BE1001085EC /* JCGLProgram.m in Sources */,
 				026B670A20C9069A001085EC /* AppDelegate.m in Sources */,
@@ -335,11 +389,13 @@
 		};
 		026B671C20C9069C001085EC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC99541B837768A71B0B635B /* Pods-JCGPUImage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48E3LB8PD7;
 				INFOPLIST_FILE = JCGPUImage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -352,11 +408,13 @@
 		};
 		026B671D20C9069C001085EC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FD113F95A392BFA162B89D9 /* Pods-JCGPUImage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48E3LB8PD7;
 				INFOPLIST_FILE = JCGPUImage/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

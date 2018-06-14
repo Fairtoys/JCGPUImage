@@ -8,7 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <OpenGLES/EAGLDrawable.h>
+#import <OpenGLES/ES2/gl.h>
 NS_ASSUME_NONNULL_BEGIN
+
+@class JCGLRenderbuffer;
+@class JCGLFramebuffer;
+@class JCNode;
 
 @interface JCGLContext : NSObject
 
@@ -16,6 +21,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) EAGLContext *context;
 - (void)setContextToCurrentContext;
+
+@property (nonatomic, strong) JCGLFramebuffer *currentFramebuffer;
+@property (nonatomic, strong) JCGLRenderbuffer *currentRenderbuffer;
+@property (nonatomic, strong) JCNode *rootNode;
+
+- (void)setViewPort:(GLint)x y:(GLint)y width:(GLsizei)width height:(GLsizei)height;
+
+- (void)clear;
+
+
+- (void)update;
+- (void)draw;
 
 @end
 

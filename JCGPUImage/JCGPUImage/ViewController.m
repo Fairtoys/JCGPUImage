@@ -7,16 +7,35 @@
 //
 
 #import "ViewController.h"
+#import "JCGPUImageHeader.h"
+#import <Masonry/Masonry.h>
 
 @interface ViewController ()
-
+@property (nonatomic, strong) JCRenderView *renderView;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    [self.view insertSubview:self.renderView atIndex:0];
+    [self.renderView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+}
+
+- (JCRenderView *)renderView{
+    if (!_renderView) {
+        _renderView = [[JCRenderView alloc] init];
+    }
+    return _renderView;
+}
+
+- (IBAction)onClickRenderButton:(id)sender {
+    [[JCGLContext sharedContext] update];
+    [[JCGLContext sharedContext] draw];
+    
 }
 
 
