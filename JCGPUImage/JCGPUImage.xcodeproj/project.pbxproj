@@ -20,6 +20,9 @@
 		026B674220C90BFE001085EC /* JCGLRenderbuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 026B674120C90BFE001085EC /* JCGLRenderbuffer.m */; };
 		026B676720C93AC1001085EC /* JCRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 026B676620C93AC1001085EC /* JCRenderView.m */; };
 		02EECB4020D2795E00455FA5 /* JCNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EECB3F20D2795E00455FA5 /* JCNode.m */; };
+		02EECB4320D35ACA00455FA5 /* CH06-brick.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 02EECB4120D35ACA00455FA5 /* CH06-brick.fsh */; };
+		02EECB4420D35ACA00455FA5 /* CH06-brick.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 02EECB4220D35ACA00455FA5 /* CH06-brick.vsh */; };
+		02EECB5420D3C96E00455FA5 /* JCDrawNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 02EECB5320D3C96E00455FA5 /* JCDrawNode.m */; };
 		F271DD95AA39B5B638DB9572 /* libPods-JCGPUImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EC09977F63D33BEB9FF6CDDF /* libPods-JCGPUImage.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +53,10 @@
 		02EECB3D20D26D6500455FA5 /* JCGPUImageHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCGPUImageHeader.h; sourceTree = "<group>"; };
 		02EECB3E20D2795E00455FA5 /* JCNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCNode.h; sourceTree = "<group>"; };
 		02EECB3F20D2795E00455FA5 /* JCNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCNode.m; sourceTree = "<group>"; };
+		02EECB4120D35ACA00455FA5 /* CH06-brick.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = "CH06-brick.fsh"; sourceTree = "<group>"; };
+		02EECB4220D35ACA00455FA5 /* CH06-brick.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = "CH06-brick.vsh"; sourceTree = "<group>"; };
+		02EECB5220D3C96E00455FA5 /* JCDrawNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCDrawNode.h; sourceTree = "<group>"; };
+		02EECB5320D3C96E00455FA5 /* JCDrawNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCDrawNode.m; sourceTree = "<group>"; };
 		5FD113F95A392BFA162B89D9 /* Pods-JCGPUImage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCGPUImage.release.xcconfig"; path = "Pods/Target Support Files/Pods-JCGPUImage/Pods-JCGPUImage.release.xcconfig"; sourceTree = "<group>"; };
 		CC99541B837768A71B0B635B /* Pods-JCGPUImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JCGPUImage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JCGPUImage/Pods-JCGPUImage.debug.xcconfig"; sourceTree = "<group>"; };
 		EC09977F63D33BEB9FF6CDDF /* libPods-JCGPUImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JCGPUImage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +95,8 @@
 		026B670720C9069A001085EC /* JCGPUImage */ = {
 			isa = PBXGroup;
 			children = (
+				02EECB4120D35ACA00455FA5 /* CH06-brick.fsh */,
+				02EECB4220D35ACA00455FA5 /* CH06-brick.vsh */,
 				026B672020C90A87001085EC /* JCUIKit */,
 				026B670820C9069A001085EC /* AppDelegate.h */,
 				026B670920C9069A001085EC /* AppDelegate.m */,
@@ -117,6 +126,8 @@
 			children = (
 				02EECB3E20D2795E00455FA5 /* JCNode.h */,
 				02EECB3F20D2795E00455FA5 /* JCNode.m */,
+				02EECB5220D3C96E00455FA5 /* JCDrawNode.h */,
+				02EECB5320D3C96E00455FA5 /* JCDrawNode.m */,
 				026B673420C90BD7001085EC /* JCGLContext.h */,
 				026B673520C90BD7001085EC /* JCGLContext.m */,
 				026B673720C90BE1001085EC /* JCGLProgram.h */,
@@ -209,7 +220,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				026B671520C9069C001085EC /* LaunchScreen.storyboard in Resources */,
+				02EECB4420D35ACA00455FA5 /* CH06-brick.vsh in Resources */,
 				026B671220C9069C001085EC /* Assets.xcassets in Resources */,
+				02EECB4320D35ACA00455FA5 /* CH06-brick.fsh in Resources */,
 				026B671020C9069A001085EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,6 +265,7 @@
 				026B670A20C9069A001085EC /* AppDelegate.m in Sources */,
 				026B673C20C90BEA001085EC /* JCGLFramebuffer.m in Sources */,
 				026B674220C90BFE001085EC /* JCGLRenderbuffer.m in Sources */,
+				02EECB5420D3C96E00455FA5 /* JCDrawNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

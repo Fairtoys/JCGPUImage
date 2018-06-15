@@ -33,10 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)validate;
 
 @property (nonatomic, strong) NSMutableArray <NSString *> *attributes;
-@property (nonatomic, strong) NSMutableArray <NSString *> *uniforms;
 - (void)addAttribute:(NSString *)attributeName;
 - (GLuint)attributeIndex:(NSString *)attributeName;
 - (GLuint)uniformIndex:(NSString *)uniformName;
+
+- (void)setUniformf:(GLuint)location x:(GLfloat)x;
+- (void)setUniformf:(GLuint)location x:(GLfloat)x y:(GLfloat)y;
+- (void)setUniformf:(GLuint)location x:(GLfloat)x y:(GLfloat)y z:(GLfloat)z;
 
 @end
 

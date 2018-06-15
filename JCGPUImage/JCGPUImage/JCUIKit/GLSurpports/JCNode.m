@@ -8,6 +8,9 @@
 
 #import "JCNode.h"
 
+
+
+
 @implementation JCNode
 
 - (NSMutableArray<JCNode *> *)childNodes{
@@ -22,5 +25,7 @@
         [node draw];
     }
 }
+
+
 
 @end

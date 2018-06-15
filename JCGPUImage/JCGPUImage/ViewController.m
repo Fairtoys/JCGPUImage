@@ -12,6 +12,7 @@
 
 @interface ViewController ()
 @property (nonatomic, strong) JCRenderView *renderView;
+
 @end
 
 @implementation ViewController
@@ -32,8 +33,10 @@
     return _renderView;
 }
 
+
 - (IBAction)onClickRenderButton:(id)sender {
     [[JCGLContext sharedContext] update];
+ 
     [[JCGLContext sharedContext] draw];
     
 }

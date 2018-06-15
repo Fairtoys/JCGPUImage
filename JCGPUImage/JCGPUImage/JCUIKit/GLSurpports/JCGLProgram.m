@@ -130,12 +130,6 @@
     }
     return _attributes;
 }
-- (NSMutableArray<NSString *> *)uniforms{
-    if (!_uniforms) {
-        _uniforms = [NSMutableArray array];
-    }
-    return _uniforms;
-}
 
 - (void)addAttribute:(NSString *)attributeName
 {
@@ -185,5 +179,16 @@
         glDeleteProgram(_program);
     
 }
+
+- (void)setUniformf:(GLuint)location x:(GLfloat)x {
+    glUniform1f(location, x);
+}
+- (void)setUniformf:(GLuint)location x:(GLfloat)x y:(GLfloat)y{
+    glUniform2f(location, x, y);
+}
+- (void)setUniformf:(GLuint)location x:(GLfloat)x y:(GLfloat)y z:(GLfloat)z{
+    glUniform3f(location, x, y, z);
+}
+
 
 @end
