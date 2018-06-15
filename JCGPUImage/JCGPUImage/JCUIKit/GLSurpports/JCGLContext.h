@@ -28,9 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setViewPort:(GLint)x y:(GLint)y width:(GLsizei)width height:(GLsizei)height;
 
-- (void)clear;
-
-
 - (void)update;
 - (void)draw;
 

@@ -20,11 +20,23 @@
     return _childNodes;
 }
 
-- (void)draw{
+- (void)visit{
+    [self update];
+    [self draw];
+    
     for (JCNode *node in self.childNodes) {
-        [node draw];
+        [node visit];
     }
 }
+
+- (void)update{
+    
+}
+
+- (void)draw{
+
+}
+
 
 
 

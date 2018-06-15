@@ -39,9 +39,7 @@
     glViewport(x, y, width, height);
 }
 
-- (void)clear{
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-}
+
 
 - (void)update{
     
@@ -49,9 +47,9 @@
 
 - (void)draw{
     [self.currentFramebuffer bind];
-    [self clear];
+    [self.currentFramebuffer clear];
     
-    [self.rootNode draw];
+    [self.rootNode visit];
     
     [self.currentFramebuffer bind];
     [self.currentRenderbuffer presentRenderBuffer];
