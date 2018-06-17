@@ -12,7 +12,7 @@
 
 @interface ViewController ()
 @property (nonatomic, strong) JCRenderView *renderView;
-
+@property (nonatomic, strong) JCGLFramebuffer *framebuffer;
 @end
 
 @implementation ViewController
@@ -24,6 +24,12 @@
         make.edges.equalTo(self.view);
     }];
     
+    [self setup];
+}
+
+- (void)setup{
+    [JCGLContext sharedContext].currentFramebuffer = self.framebuffer;
+    [self.framebuffer bindRenderbufferToColor0:self.renderView.renderbuffer];
 }
 
 - (JCRenderView *)renderView{
@@ -33,14 +39,18 @@
     return _renderView;
 }
 
-
-- (IBAction)onClickRenderButton:(id)sender {
-    [[JCGLContext sharedContext] update];
- 
-    [[JCGLContext sharedContext] draw];
-    
+- (JCGLFramebuffer *)framebuffer{
+    if (!_framebuffer) {
+        _framebuffer = [[JCGLFramebuffer alloc] init];
+    }
+    return _framebuffer;
 }
 
+- (IBAction)onClickRenderButton:(id)sender {
+ 
+    [[JCGLContext sharedContext] drawFrame];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

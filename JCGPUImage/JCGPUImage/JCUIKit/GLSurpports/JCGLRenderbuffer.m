@@ -16,6 +16,7 @@
 {
     self = [super init];
     if (self) {
+        [[JCGLContext sharedContext] setContextToCurrentContext];
         glGenRenderbuffers(1, &_renderbuffer);
     }
     return self;
@@ -38,6 +39,7 @@
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_WIDTH, &_widthInPixel);
     glGetRenderbufferParameteriv(GL_RENDERBUFFER, GL_RENDERBUFFER_HEIGHT, &_heightInPixel);
     [[JCGLContext sharedContext] setViewPort:0 y:0 width:_widthInPixel height:_heightInPixel];
+    
 }
 
 - (void)presentRenderBuffer{
@@ -48,14 +50,3 @@
 
 @end
 
-
-@implementation JCGLRenderbuffer (JCFramebufferAttachProtocol)
-
-- (void)bindFrameBuffer:(JCGLFramebuffer *)framebuffer{
-    [framebuffer bind];
-    [self bind];
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _renderbuffer);
-    
-}
-
-@end

@@ -7,6 +7,7 @@
 //
 
 #import "JCGLProgram.h"
+#import "JCGLContext.h"
 
 @implementation JCGLProgram
 
@@ -14,7 +15,7 @@
     if ((self = [super init]))
     {
 //        _initialized = NO;
-        
+        [[JCGLContext sharedContext] setContextToCurrentContext];
         _program = glCreateProgram();
         
         if (![self compileShader:&_vertShader

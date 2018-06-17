@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JCFramebufferAttachProtocol.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,8 +25,5 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface JCGLRenderbuffer (JCFramebufferAttachProtocol) <JCFramebufferAttachProtocol>
-
-@end
 
 NS_ASSUME_NONNULL_END

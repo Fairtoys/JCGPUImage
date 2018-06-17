@@ -62,13 +62,4 @@
     }
     return _renderbuffer;
 }
-
-- (void)setFramebuffer:(JCGLFramebuffer *)framebuffer{
-    [framebuffer bindToTarget:self.renderbuffer];
-}
-
-- (void)presentRenderbuffer{
-    [self.renderbuffer presentRenderBuffer];
-}
-
 @end

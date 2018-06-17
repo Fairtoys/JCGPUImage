@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <OpenGLES/ES2/gl.h>
-#import "JCFramebufferAttachProtocol.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JCGLTexture : NSObject
@@ -23,8 +22,5 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface JCGLTexture (JCFramebufferAttachProtocol) <JCFramebufferAttachProtocol>
-
-@end
 
 NS_ASSUME_NONNULL_END

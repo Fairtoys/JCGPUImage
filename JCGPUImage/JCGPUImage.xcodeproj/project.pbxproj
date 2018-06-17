@@ -47,7 +47,6 @@
 		026B673E20C90BF1001085EC /* JCGLTexture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCGLTexture.m; sourceTree = "<group>"; };
 		026B674020C90BFE001085EC /* JCGLRenderbuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCGLRenderbuffer.h; sourceTree = "<group>"; };
 		026B674120C90BFE001085EC /* JCGLRenderbuffer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCGLRenderbuffer.m; sourceTree = "<group>"; };
-		026B676420C92EF7001085EC /* JCFramebufferAttachProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCFramebufferAttachProtocol.h; sourceTree = "<group>"; };
 		026B676520C93AC1001085EC /* JCRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCRenderView.h; sourceTree = "<group>"; };
 		026B676620C93AC1001085EC /* JCRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JCRenderView.m; sourceTree = "<group>"; };
 		02EECB3D20D26D6500455FA5 /* JCGPUImageHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JCGPUImageHeader.h; sourceTree = "<group>"; };
@@ -134,7 +133,6 @@
 				026B673820C90BE1001085EC /* JCGLProgram.m */,
 				026B673A20C90BEA001085EC /* JCGLFramebuffer.h */,
 				026B673B20C90BEA001085EC /* JCGLFramebuffer.m */,
-				026B676420C92EF7001085EC /* JCFramebufferAttachProtocol.h */,
 				026B673D20C90BF1001085EC /* JCGLTexture.h */,
 				026B673E20C90BF1001085EC /* JCGLTexture.m */,
 				026B674020C90BFE001085EC /* JCGLRenderbuffer.h */,

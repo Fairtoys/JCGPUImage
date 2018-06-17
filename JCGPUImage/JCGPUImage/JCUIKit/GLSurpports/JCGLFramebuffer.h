@@ -12,18 +12,24 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol JCFramebufferAttachProtocol;
+@class JCGLRenderbuffer;
+@class JCGLTexture;
+
 
 @interface JCGLFramebuffer : NSObject
 
 @property (nonatomic, assign)  GLuint framebuffer;
-
-- (void)bindToTarget:(id <JCFramebufferAttachProtocol>)target;
 
 - (void)bind;
 
 - (void)clear;
 
 - (void)render;
+
+- (void)bindRenderbufferToColor0:(JCGLRenderbuffer *)renderbuffer;
+- (void)bindRenderbuffer:(JCGLRenderbuffer *)renderbuffer attachment:(GLenum)attachment;
+- (void)bindTexture:(JCGLTexture *)texture attachment:(GLenum)attachment;
+- (void)bindTexture:(JCGLTexture *)texture attachment:(GLenum)attachment level:(GLint)level;
 
 @end
 

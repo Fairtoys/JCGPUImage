@@ -18,9 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) CAEAGLLayer *glLayer;
 
-- (void)setFramebuffer:(JCGLFramebuffer *)framebuffer;
-
-- (void)presentRenderbuffer;
 
 @end
 

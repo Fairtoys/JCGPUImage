@@ -12,7 +12,6 @@
 #import "JCGLContext.h"
 #import "JCGLProgram.h"
 #import "JCGLFramebuffer.h"
-#import "JCFramebufferAttachProtocol.h"
 #import "JCGLTexture.h"
 #import "JCGLRenderbuffer.h"
 

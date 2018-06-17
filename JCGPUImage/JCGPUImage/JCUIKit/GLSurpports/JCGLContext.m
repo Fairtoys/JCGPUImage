@@ -39,20 +39,13 @@
     glViewport(x, y, width, height);
 }
 
+- (void)drawFrame{
 
-
-- (void)update{
-    
-}
-
-- (void)draw{
-    [self.currentFramebuffer bind];
     [self.currentFramebuffer clear];
     
     [self.rootNode visit];
     
-    [self.currentFramebuffer bind];
-    [self.currentRenderbuffer presentRenderBuffer];
+    [self.currentFramebuffer render];
 }
 
 @end
