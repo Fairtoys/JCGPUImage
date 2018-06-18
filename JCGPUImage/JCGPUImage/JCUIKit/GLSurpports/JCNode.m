@@ -37,7 +37,10 @@
 
 }
 
-
+- (void)addSubNode:(JCNode *)subNode{
+    subNode.superNode = self;
+    [self.childNodes addObject:subNode];
+}
 
 
 @end

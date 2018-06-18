@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "JCGPUImageHeader.h"
 #import <Masonry/Masonry.h>
+#import <GLKit/GLKit.h>
 
 @interface ViewController ()
 @property (nonatomic, strong) JCRenderView *renderView;
@@ -47,8 +48,9 @@
 }
 
 - (IBAction)onClickRenderButton:(id)sender {
- 
+
     [[JCGLContext sharedContext] drawFrame];
+    
     
 }
 

@@ -51,13 +51,20 @@
     return _renderbuffers;
 }
 
+- (nullable JCGLRenderbuffer *)renderBufferForColor0{
+    return [self renderBufferForAttachment:GL_COLOR_ATTACHMENT0];
+}
+- (JCGLRenderbuffer *)renderBufferForAttachment:(GLenum)attachment{
+    return self.renderbuffers[@(attachment)];
+}
+
 - (void)bindRenderbufferToColor0:(JCGLRenderbuffer *)renderbuffer{
     [self bindRenderbuffer:renderbuffer attachment:GL_COLOR_ATTACHMENT0];
     
 }
 
 - (void)bindRenderbuffer:(JCGLRenderbuffer *)renderbuffer attachment:(GLenum)attachment{
-    if (self.renderbuffers[@(attachment)] == renderbuffer) {
+    if ([self renderBufferForAttachment:attachment] == renderbuffer) {
         return ;
     }
     

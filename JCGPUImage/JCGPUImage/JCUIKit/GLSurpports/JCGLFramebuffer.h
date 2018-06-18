@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)render;
 
+- (nullable JCGLRenderbuffer *)renderBufferForColor0;
+- (nullable JCGLRenderbuffer *)renderBufferForAttachment:(GLenum)attachment;
 - (void)bindRenderbufferToColor0:(JCGLRenderbuffer *)renderbuffer;
 - (void)bindRenderbuffer:(JCGLRenderbuffer *)renderbuffer attachment:(GLenum)attachment;
 - (void)bindTexture:(JCGLTexture *)texture attachment:(GLenum)attachment;

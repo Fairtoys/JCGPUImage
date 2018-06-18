@@ -47,6 +47,12 @@
     [[JCGLContext sharedContext].context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
+- (void)drawTriangles{
+    
+    glGenBuffers(1, NULL);
+    
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, NULL);
+}
 
 @end
 

@@ -37,6 +37,7 @@
 
 - (void)setViewPort:(GLint)x y:(GLint)y width:(GLsizei)width height:(GLsizei)height{
     glViewport(x, y, width, height);
+    _projectionMatrix = GLKMatrix4MakeOrtho(0, width, 0, height, -1024, 1024);
 }
 
 - (void)drawFrame{

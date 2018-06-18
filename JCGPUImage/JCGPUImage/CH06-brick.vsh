@@ -17,8 +17,8 @@ const float DiffuseContribution  = 1.0 - SpecularContribution;
 varying float LightIntensity;
 varying vec2  MCposition;
 
-attribute vec4 a_Position;
-attribute vec4 a_Normal;
+attribute vec4 a_position;
+attribute vec4 a_normal;
 
 void main()
 {

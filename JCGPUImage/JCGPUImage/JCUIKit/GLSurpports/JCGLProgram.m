@@ -191,5 +191,8 @@
     glUniform3f(location, x, y, z);
 }
 
+- (void)enableVertexAttribArray:(GLuint)index{
+    glEnableVertexAttribArray(index);
+}
 
 @end

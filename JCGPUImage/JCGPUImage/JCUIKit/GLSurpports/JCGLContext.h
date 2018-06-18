@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <OpenGLES/EAGLDrawable.h>
 #import <OpenGLES/ES2/gl.h>
+#import <GLKit/GLKit.h>
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class JCGLFramebuffer;
@@ -23,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) JCGLFramebuffer *currentFramebuffer;
 @property (nonatomic, strong) JCNode *rootNode;
+
+@property (nonatomic, assign) GLKMatrix4 projectionMatrix;
 
 - (void)setViewPort:(GLint)x y:(GLint)y width:(GLsizei)width height:(GLsizei)height;
 

@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setRenderBufferStorageForDrawable:(id <EAGLDrawable>)drawable;
 - (void)presentRenderBuffer;
 
+- (void)drawTriangles;
+
 @end
 
 

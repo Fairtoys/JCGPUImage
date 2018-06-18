@@ -41,6 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setUniformf:(GLuint)location x:(GLfloat)x y:(GLfloat)y;
 - (void)setUniformf:(GLuint)location x:(GLfloat)x y:(GLfloat)y z:(GLfloat)z;
 
+- (void)enableVertexAttribArray:(GLuint)index;
+
 @end
 
 NS_ASSUME_NONNULL_END
