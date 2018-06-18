@@ -107,6 +107,7 @@ typedef struct JCQuad{
     }
     return _program;
 }
+
 - (void)draw{
     JCGLRenderbuffer *renderbuffer = [[JCGLContext sharedContext].currentFramebuffer renderBufferForColor0];
     GLuint width = renderbuffer.widthInPixel;
@@ -120,7 +121,7 @@ typedef struct JCQuad{
     [self.program use];
     
     
-    
+    glVertexAttribPointer(self.program.aPosition, 4, GL_FLOAT, GL_FALSE, 0, 0);
     
 }
 
