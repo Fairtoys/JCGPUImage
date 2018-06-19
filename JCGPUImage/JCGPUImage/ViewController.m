@@ -14,6 +14,7 @@
 @interface ViewController ()
 @property (nonatomic, strong) JCRenderView *renderView;
 @property (nonatomic, strong) JCGLFramebuffer *framebuffer;
+@property (nonatomic, strong) JCNode *rootNode;
 @end
 
 @implementation ViewController
@@ -31,6 +32,7 @@
 - (void)setup{
     [JCGLContext sharedContext].currentFramebuffer = self.framebuffer;
     [self.framebuffer bindRenderbufferToColor0:self.renderView.renderbuffer];
+    [JCGLContext sharedContext].rootNode = self.rootNode;
 }
 
 - (JCRenderView *)renderView{
@@ -45,6 +47,13 @@
         _framebuffer = [[JCGLFramebuffer alloc] init];
     }
     return _framebuffer;
+}
+
+- (JCNode *)rootNode{
+    if (!_rootNode) {
+        _rootNode = [[JCDrawNode alloc] init];
+    }
+    return _rootNode;
 }
 
 - (IBAction)onClickRenderButton:(id)sender {

@@ -49,9 +49,11 @@
 
 - (void)drawTriangles{
     
-    glGenBuffers(1, NULL);
-    
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT, NULL);
+}
+
+- (void)drawQuad{
+    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
 @end

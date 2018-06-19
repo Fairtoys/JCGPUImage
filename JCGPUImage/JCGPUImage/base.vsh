@@ -9,10 +9,10 @@
 // See 3Dlabs-License.txt for license information
 //
 
-attribute vec4 a_position;
-attribute vec4 a_color;
+attribute highp vec4 a_position;
+attribute highp vec4 a_color;
 
-varying vec4 v_color;
+varying highp vec4 v_color;
 
 void main()
 {

@@ -110,19 +110,36 @@ typedef struct JCQuad{
 
 - (void)draw{
     JCGLRenderbuffer *renderbuffer = [[JCGLContext sharedContext].currentFramebuffer renderBufferForColor0];
+    JCGLContext *context = [JCGLContext sharedContext];
+    GLKMatrix4 transform = context.projectionMatrix;
+    
     GLuint width = renderbuffer.widthInPixel;
     GLuint height = renderbuffer.heightInPixel;
     JCQuad quad;
-    quad.bl.position = GLKVector4Make(0, 0, 0, 1);
-    quad.br.position = GLKVector4Make(width, 0, 0, 1);
-    quad.tl.position = GLKVector4Make(0, height, 0, 1);
-    quad.tr.position = GLKVector4Make(width, height, 0, 1);
+    quad.bl.position = GLKMatrix4MultiplyVector4(transform, GLKVector4Make(100, 100, 0, 1));
+    quad.br.position = GLKMatrix4MultiplyVector4(transform, GLKVector4Make(width - 100, 100, 0, 1));
+    quad.tl.position = GLKMatrix4MultiplyVector4(transform, GLKVector4Make(100, height - 100, 0, 1));
+    quad.tr.position = GLKMatrix4MultiplyVector4(transform, GLKVector4Make(width - 100, height - 100, 0, 1));
+    
+    quad.bl.color = GLKVector4Make(0.5, 0.0, 0.0, 1.0);
+    quad.br.color = GLKVector4Make(0.0, 1.0, 0.0, 1.0);
+    quad.tl.color = GLKVector4Make(0.0, 0.0, 1.0, 1.0);
+    quad.tr.color = GLKVector4Make(0.0, 1.0, 1.0, 1.0);
+    
+//    GLfloat color[ 4 * 4] = {
+//        0.5, 0, 0, 1,
+//        0, 1, 0, 1,
+//        0, 0, 1, 1,
+//        0, 1, 1, 1
+//    };
     
     [self.program use];
-    
-    
-    glVertexAttribPointer(self.program.aPosition, 4, GL_FLOAT, GL_FALSE, 0, 0);
-    
+    int offset = offsetof(JCVertex, color);
+    [self.program setVertexAttribPointer:self.program.aPosition size:4 type:GL_FLOAT normalized:GL_FALSE stride:sizeof(JCVertex) ptr:(GLvoid*)(&quad) + offsetof(JCVertex, position)];
+    [self.program setVertexAttribPointer:self.program.aColor size:4 type:GL_FLOAT normalized:GL_FALSE stride:sizeof(JCVertex) ptr:(GLvoid*)(&quad) + offset];
+//    [self.program setVertexAttribPointer:self.program.aColor size:4 type:GL_FLOAT normalized:GL_FALSE stride:0 ptr:color];
+
+    [renderbuffer drawQuad];
 }
 
 @end

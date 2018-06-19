@@ -17,5 +17,8 @@
 
 #import "JCRenderView.h"
 
+#import "JCNode.h"
+#import "JCDrawNode.h"
+
 
 #endif /* JCGPUImageHeader_h */

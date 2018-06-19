@@ -194,5 +194,10 @@
 - (void)enableVertexAttribArray:(GLuint)index{
     glEnableVertexAttribArray(index);
 }
+- (void)setVertexAttribPointer:(GLuint)index size:(GLint)size type:(GLenum)type normalized:(GLboolean)normalized stride:(GLsizei)stride ptr:(GLvoid *)ptr{
+    glVertexAttribPointer(index, size, type, normalized, stride, ptr);
+    
+}
+
 
 @end

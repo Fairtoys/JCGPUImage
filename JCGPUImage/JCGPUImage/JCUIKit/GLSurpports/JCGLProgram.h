@@ -43,6 +43,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)enableVertexAttribArray:(GLuint)index;
 
+- (void)setVertexAttribPointer:(GLuint)index size:(GLint)size type:(GLenum)type normalized:(GLboolean)normalized stride:(GLsizei)stride ptr:(GLvoid *)ptr;
+
 @end
 
 NS_ASSUME_NONNULL_END
