@@ -94,16 +94,53 @@ typedef struct JCQuad{
 
 @end
 
+@interface JCGLProgramDrawCircle : JCGLProgram
+
+@property (nonatomic, assign) GLuint aPosition;
+@property (nonatomic, assign) GLuint aPositionInPixels;
+
+@property (nonatomic, assign) GLuint uResolution;
+
+
+@end
+
+@implementation JCGLProgramDrawCircle
+- (instancetype)init{
+    if (self = [super initWithVertexShaderFilename:@"circle" fragmentShaderFilename:@"circle"]) {
+        [self addAttribute:@"a_position"];
+        [self addAttribute:@"a_positionInPixels"];
+        
+        BOOL linked = [self link];
+        
+        if (!linked) {
+            NSLog(@"link error");
+        }
+        
+        _aPosition = [self attributeIndex:@"a_position"];
+        _aPositionInPixels = [self attributeIndex:@"a_positionInPixels"];
+        
+        [self use];
+        
+        [self enableVertexAttribArray:_aPosition];
+        [self enableVertexAttribArray:_aPositionInPixels];
+        
+        _uResolution = [self uniformIndex:@"u_resolution"];
+    }
+    return self;
+}
+@end
+
+#define ProgramClass JCGLProgramDrawCircle
 
 @interface JCDrawNode ()
-@property (nonatomic, strong) JCGLProgramBase *program;
+@property (nonatomic, strong) ProgramClass *program;
 @end
 
 @implementation JCDrawNode
 
-- (JCGLProgramBase *)program{
+- (ProgramClass *)program{
     if (!_program) {
-        _program = [[JCGLProgramBase alloc] init];
+        _program = [[ProgramClass alloc] init];
     }
     return _program;
 }
@@ -116,15 +153,23 @@ typedef struct JCQuad{
     GLuint width = renderbuffer.widthInPixel;
     GLuint height = renderbuffer.heightInPixel;
     JCQuad quad;
-    quad.bl.position = GLKMatrix4MultiplyVector4(transform, GLKVector4Make(100, 100, 0, 1));
-    quad.br.position = GLKMatrix4MultiplyVector4(transform, GLKVector4Make(width - 100, 100, 0, 1));
-    quad.tl.position = GLKMatrix4MultiplyVector4(transform, GLKVector4Make(100, height - 100, 0, 1));
-    quad.tr.position = GLKMatrix4MultiplyVector4(transform, GLKVector4Make(width - 100, height - 100, 0, 1));
+    CGFloat edge = 0;
+    quad.bl.position = GLKMatrix4MultiplyVector4(transform, GLKVector4Make(edge, edge, 0, 1));
+    quad.br.position = GLKMatrix4MultiplyVector4(transform, GLKVector4Make(width - edge, edge, 0, 1));
+    quad.tl.position = GLKMatrix4MultiplyVector4(transform, GLKVector4Make(edge, height - edge, 0, 1));
+    quad.tr.position = GLKMatrix4MultiplyVector4(transform, GLKVector4Make(width - edge, height - edge, 0, 1));
     
     quad.bl.color = GLKVector4Make(0.5, 0.0, 0.0, 1.0);
     quad.br.color = GLKVector4Make(0.0, 1.0, 0.0, 1.0);
     quad.tl.color = GLKVector4Make(0.0, 0.0, 1.0, 1.0);
     quad.tr.color = GLKVector4Make(0.0, 1.0, 1.0, 1.0);
+    
+    GLfloat positionInPixels[2 * 4] = {
+        0, 0,
+        width, 0,
+        0,  height,
+        width, height
+    };
     
 //    GLfloat color[ 4 * 4] = {
 //        0.5, 0, 0, 1,
@@ -134,11 +179,12 @@ typedef struct JCQuad{
 //    };
     
     [self.program use];
-    int offset = offsetof(JCVertex, color);
+//    int offset = offsetof(JCVertex, color);
     [self.program setVertexAttribPointer:self.program.aPosition size:4 type:GL_FLOAT normalized:GL_FALSE stride:sizeof(JCVertex) ptr:(GLvoid*)(&quad) + offsetof(JCVertex, position)];
-    [self.program setVertexAttribPointer:self.program.aColor size:4 type:GL_FLOAT normalized:GL_FALSE stride:sizeof(JCVertex) ptr:(GLvoid*)(&quad) + offset];
+//    [self.program setVertexAttribPointer:self.program.aPositionInPixels size:4 type:GL_FLOAT normalized:GL_FALSE stride:sizeof(JCVertex) ptr:(GLvoid*)(&quad) + offset];
 //    [self.program setVertexAttribPointer:self.program.aColor size:4 type:GL_FLOAT normalized:GL_FALSE stride:0 ptr:color];
-
+    [self.program setVertexAttribPointer:self.program.aPositionInPixels size:2 type:GL_FLOAT normalized:GL_FALSE stride:0 ptr:positionInPixels];
+    [self.program setUniformf:self.program.uResolution x:width y:height];
     [renderbuffer drawQuad];
 }
 
